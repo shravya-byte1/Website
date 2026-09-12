@@ -67,6 +67,84 @@
     </div>
   </section>
 
+
+<section class="section-tight bg-teal">
+    <div class="container" style="max-width:900px;">
+      <div class="eyebrow" style="justify-content:center;"><span class="ring"></span>Client stories</div>
+      <h2 style="text-align:center; max-width:28ch; margin:0 auto 8px;">What clients & community say</h2>
+      <p style="text-align:center; max-width:52ch; margin:0 auto 36px; opacity:0.85;">A few sample testimonials below. Find more here</p>
+
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-track">
+          <blockquote class="testimonial-slide is-active">
+            <p>"Forever go to person for healing. Thank you so much Shravya. You helped me recover fast! Thanks to Master too"</p>
+            <cite>— Vinila Govindan, Bengaluru - Distance Healing client</cite>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <p>"Shravya is an amazing healer. I reached out to her for healing my ankle, and I was truly amazed by the results. Within just one session, the pain in my ankle completely disappeared. I am incredibly grateful for her healing and the care she provides. I highly recommend Shravya to anyone looking for effective and compassionate healing."</p>
+            <cite>— Swarali Patil, Bengaluru - Distance Healing client</cite>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <p>"Hello! I'm happy to share that my eye strain got resolved miraculously without few hours of healing from Shravya. I had stressful screen time at work, healing made it easier than I could think. Highly recommend shravya for health & wellness. Kudos to you"</p>
+            <cite>— Abhilash Manjunath, Bengaluru - Distance Healing client</cite>
+          </blockquote>
+        </div>
+        <div class="testimonial-dots" id="testimonialDots"></div>
+      </div>
+
+
+      <style>
+        .testimonial-slider{ max-width:640px; margin:0 auto; text-align:center; }
+        .testimonial-track{ position:relative; min-height:150px; }
+        .testimonial-slide{ position:absolute; inset:0; margin:0; opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease; pointer-events:none; }
+        .testimonial-slide.is-active{ opacity:1; transform:translateY(0); pointer-events:auto; position:relative; }
+        .testimonial-slide p{ font-size:1.15em; line-height:1.6; }
+        .testimonial-slide cite{ display:block; margin-top:16px; font-weight:600; font-style:normal; }
+        .testimonial-dots{ display:flex; justify-content:center; gap:8px; margin-top:24px; }
+        .testimonial-dots button{ width:9px; height:9px; border-radius:50%; border:none; background:currentColor; opacity:.3; cursor:pointer; padding:0; }
+        .testimonial-dots button.is-active{ opacity:1; }
+      </style>
+
+      <script>
+        (function(){
+          var slides = document.querySelectorAll('#testimonialSlider .testimonial-slide');
+          var dotsWrap = document.getElementById('testimonialDots');
+          var current = 0;
+          var timer;
+
+          slides.forEach(function(_, i){
+            var dot = document.createElement('button');
+            dot.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+            if (i === 0) dot.classList.add('is-active');
+            dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
+            dotsWrap.appendChild(dot);
+          });
+          var dots = dotsWrap.querySelectorAll('button');
+
+          function goTo(index){
+            slides[current].classList.remove('is-active');
+            dots[current].classList.remove('is-active');
+            current = index;
+            slides[current].classList.add('is-active');
+            dots[current].classList.add('is-active');
+          }
+
+          function next(){ goTo((current + 1) % slides.length); }
+
+          function resetTimer(){
+            clearInterval(timer);
+            timer = setInterval(next, 5000);
+          }
+
+          resetTimer();
+        })();
+      </script>
+    </div>
+  </section>
+
+
+  
+
   <section class="pathways">
     <div class="container">
       <div class="section-head">
@@ -149,80 +227,7 @@
     </div>
   </section>
 
-  <section class="section-tight bg-teal">
-    <div class="container" style="max-width:900px;">
-      <div class="eyebrow" style="justify-content:center;"><span class="ring"></span>Client stories</div>
-      <h2 style="text-align:center; max-width:28ch; margin:0 auto 8px;">What clients & community say</h2>
-      <p style="text-align:center; max-width:52ch; margin:0 auto 36px; opacity:0.85;">A few sample testimonials below. Find more here</p>
-
-      <div class="testimonial-slider" id="testimonialSlider">
-        <div class="testimonial-track">
-          <blockquote class="testimonial-slide is-active">
-            <p>"Forever go to person for healing. Thank you so much Shravya. You helped me recover fast! Thanks to Master too"</p>
-            <cite>— Vinila Govindan, Bengaluru - Distance Healing client</cite>
-          </blockquote>
-          <blockquote class="testimonial-slide">
-            <p>"Shravya is an amazing healer. I reached out to her for healing my ankle, and I was truly amazed by the results. Within just one session, the pain in my ankle completely disappeared. I am incredibly grateful for her healing and the care she provides. I highly recommend Shravya to anyone looking for effective and compassionate healing."</p>
-            <cite>— Swarali Patil, Bengaluru - Distance Healing client</cite>
-          </blockquote>
-          <blockquote class="testimonial-slide">
-            <p>"Hello! I'm happy to share that my eye strain got resolved miraculously without few hours of healing from Shravya. I had stressful screen time at work, healing made it easier than I could think. Highly recommend shravya for health & wellness. Kudos to you"</p>
-            <cite>— Abhilash Manjunath, Bengaluru - Distance Healing client</cite>
-          </blockquote>
-        </div>
-        <div class="testimonial-dots" id="testimonialDots"></div>
-      </div>
-
-
-      <style>
-        .testimonial-slider{ max-width:640px; margin:0 auto; text-align:center; }
-        .testimonial-track{ position:relative; min-height:150px; }
-        .testimonial-slide{ position:absolute; inset:0; margin:0; opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease; pointer-events:none; }
-        .testimonial-slide.is-active{ opacity:1; transform:translateY(0); pointer-events:auto; position:relative; }
-        .testimonial-slide p{ font-size:1.15em; line-height:1.6; }
-        .testimonial-slide cite{ display:block; margin-top:16px; font-weight:600; font-style:normal; }
-        .testimonial-dots{ display:flex; justify-content:center; gap:8px; margin-top:24px; }
-        .testimonial-dots button{ width:9px; height:9px; border-radius:50%; border:none; background:currentColor; opacity:.3; cursor:pointer; padding:0; }
-        .testimonial-dots button.is-active{ opacity:1; }
-      </style>
-
-      <script>
-        (function(){
-          var slides = document.querySelectorAll('#testimonialSlider .testimonial-slide');
-          var dotsWrap = document.getElementById('testimonialDots');
-          var current = 0;
-          var timer;
-
-          slides.forEach(function(_, i){
-            var dot = document.createElement('button');
-            dot.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
-            if (i === 0) dot.classList.add('is-active');
-            dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
-            dotsWrap.appendChild(dot);
-          });
-          var dots = dotsWrap.querySelectorAll('button');
-
-          function goTo(index){
-            slides[current].classList.remove('is-active');
-            dots[current].classList.remove('is-active');
-            current = index;
-            slides[current].classList.add('is-active');
-            dots[current].classList.add('is-active');
-          }
-
-          function next(){ goTo((current + 1) % slides.length); }
-
-          function resetTimer(){
-            clearInterval(timer);
-            timer = setInterval(next, 5000);
-          }
-
-          resetTimer();
-        })();
-      </script>
-    </div>
-  </section>
-
+  
 
 
 
